@@ -1,12 +1,16 @@
 package converter;
 
+import entity.Category;
 import entity.Product;
+import model.CategoryRequest;
 import model.ProductRequest;
 
 public class CategoryConverter {
 
-    public Product convertProductToEntity(ProductRequest request){
-        Product product = new Product();
+    public Category convertCategoryRequest(CategoryRequest categoryRequest){
+        Category category = new Category();
+        category.setCategoryName(categoryRequest.getName());
+        return category;
 
     }
 }

@@ -57,6 +57,10 @@ public class Category {
         return updateAt;
     }
 
+    public Category(){
+
+    }
+
     public void setUpdateAt(LocalDateTime updateAt) {
         this.updateAt = updateAt;
     }
