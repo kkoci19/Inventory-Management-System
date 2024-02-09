@@ -1,5 +1,7 @@
 package model;
 
+import entity.Category;
+
 public class ProductRequest {
     private String productName;
     private String productDescription;
