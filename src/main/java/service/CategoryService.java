@@ -4,20 +4,24 @@ import converter.CategoryConverter;
 import converter.ProductConverter;
 import dao.CategoryDao;
 import dao.ProductDao;
+import entity.Category;
 import model.CategoryRequest;
 import model.ProductRequest;
 import validator.CategoryRequestValidator;
 import validator.ProductRequestValidator;
 
+import javax.persistence.Converter;
+
 public class CategoryService {
     CategoryDao categoryDao = new CategoryDao();
 
-    public static CategoryRequest createCategory(CategoryRequest categoryRequest){
+    public CategoryRequest createCategory(CategoryRequest categoryRequest){
         //Validate user input
         CategoryRequestValidator.validateCategory(categoryRequest);
         //Convert model to entity
-        CategoryConverter.convertCategoryRequest(categoryRequest);
+        Category category= CategoryConverter.convertCategoryRequest(categoryRequest);
         //Insert product into Database
-        CategoryDao.createCategoryEntity(categoryRequest);
+        categoryDao.createCategoryEntity(category);
+        return  categoryRequest;
     }
 }
