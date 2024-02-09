@@ -7,7 +7,7 @@ import model.ProductRequest;
 
 public class CategoryConverter {
 
-    public Category convertCategoryRequest(CategoryRequest categoryRequest){
+    public static Category convertCategoryRequest(CategoryRequest categoryRequest){
         Category category = new Category();
         category.setCategoryName(categoryRequest.getName());
         return category;
