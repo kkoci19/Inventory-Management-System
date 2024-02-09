@@ -24,4 +24,5 @@
         <mapping class="entity.Product" />
     </session-factory>
 
+
 </hibernate-configuration>
