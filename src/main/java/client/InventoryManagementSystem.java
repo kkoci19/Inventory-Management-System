@@ -1,6 +1,7 @@
 package client;
 
 import dao.ProductDao;
+import entity.Category;
 import model.CategoryRequest;
 import model.ProductRequest;
 import service.CategoryService;
@@ -64,7 +65,7 @@ public class InventoryManagementSystem {
     public static void createCategory (Scanner sc){
         CategoryRequest categoryRequest = new CategoryRequest();
         System.out.println("Please insert category name:");
-        sc.next();
+        categoryRequest.setName(sc.next());
         CategoryService categoryService=new CategoryService();
         categoryService.createCategory(categoryRequest);
     }
@@ -72,15 +73,15 @@ public class InventoryManagementSystem {
     public static void createProduct (Scanner sc){
         ProductRequest productRequest = new ProductRequest();
         System.out.println("Please insert product name:");
-        sc.next();
+        productRequest.setProductName(sc.next());
         System.out.println("Please insert product description");
-        sc.next();
+        productRequest.setProductDescription(sc.next());
         System.out.println("Please insert product price");
-        sc.nextDouble();
+        productRequest.setPrice(sc.nextDouble());
         System.out.println("Please insert product quantity");
-        sc.nextInt();
+        productRequest.setQuantity(sc.nextInt());
         System.out.println("Please insert product category id");
-        sc.nextInt();
+        productRequest.setCategory(new Category(sc.nextLong()));
         ProductService productService=new ProductService();
         productService.createProduct(productRequest);
 

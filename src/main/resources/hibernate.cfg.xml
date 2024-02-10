@@ -1,5 +1,5 @@
-<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
-        "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD//EN" "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
 <hibernate-configuration>
     <session-factory>
         <!-- JDBC Database connection settings -->
@@ -7,7 +7,7 @@
 
         <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/inventory_management_system</property>
         <property name="hibernate.connection.username">root</property>
-        <property name="hibernate.connection.password">12345</property>
+        <property name="hibernate.connection.password"></property>
 
         <!-- JDBC connection pool settings -->
         <property name="hibernate.c3p0.min_size">5</property>
@@ -25,6 +25,5 @@
         <!-- Mention annotated class -->
         <mapping class="entity.Product" />
         <mapping class="entity.Category" />
-        <mapping class="entity.Order" />
     </session-factory>
 </hibernate-configuration>

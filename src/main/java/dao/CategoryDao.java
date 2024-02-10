@@ -4,6 +4,7 @@ import entity.Category;
 import entity.Product;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
 import util.HibernateUtil;
 
 import java.util.List;
@@ -16,12 +17,13 @@ public class CategoryDao {
     public CategoryDao(){
         sessionFactory= HibernateUtil.getSessionFactory();
     }
-    Session session;
-    public Category createCategoryEntity(Category category){
-        sessionFactory.getCurrentSession().save(category);
-        return category;
 
+    public void createCategoryEntity(Category category){
+        try (Session session = sessionFactory.openSession()){
+            Transaction transaction = session.beginTransaction();
+            transaction.commit();
 
+        }
     }
 
     public List<Category> displayCategory(){

@@ -1,9 +1,11 @@
 package dao;
 
+import entity.Category;
 import entity.Product;
 import org.hibernate.Hibernate;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
 import util.HibernateUtil;
 
 import java.util.List;
@@ -16,11 +18,12 @@ public class ProductDao {
         sessionFactory= getSessionFactory();
     }
     Session session;
-    public Product createProductEntity(Product product){
-        sessionFactory.getCurrentSession().save(product);
-        return product;
+    public void createProductEntity(Product product){
+        try (Session session = sessionFactory.openSession()){
+            Transaction transaction = session.beginTransaction();
+            transaction.commit();
 
-
+        }
     }
     public List<Product> displayProducts(){
         try (Session session=getSessionFactory().openSession()){

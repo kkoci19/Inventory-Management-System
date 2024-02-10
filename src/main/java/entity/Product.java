@@ -21,7 +21,12 @@ public class Product {
 
     private Double price;
     private int quantity;
-    private entity.Category category;
+
+    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @JoinColumn(name = "category_id", nullable = false)
+   private Category category;
+
+
     @CreationTimestamp
     @Column(name = "created_at")
     private LocalDateTime createAt;
