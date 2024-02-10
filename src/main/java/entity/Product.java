@@ -1,6 +1,5 @@
 package entity;
 
-import jdk.jfr.Category;
 import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.annotations.CreationTimestamp;
@@ -22,7 +21,7 @@ public class Product {
 
     private Double price;
     private int quantity;
-    private Category category;
+    private entity.Category category;
     @CreationTimestamp
     @Column(name = "created_at")
     private LocalDateTime createAt;
@@ -92,5 +91,17 @@ public class Product {
 
     public void setUpdateAt(LocalDateTime updateAt) {
         this.updateAt = updateAt;
+    }
+
+    @Override
+    public String toString() {
+        return "Product{" +
+                "id=" + id +
+                ", productName='" + productName + '\'' +
+                ", description='" + description + '\'' +
+                ", price=" + price +
+                ", quantity=" + quantity +
+                ", category=" + category +
+                '}';
     }
 }

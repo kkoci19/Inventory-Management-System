@@ -11,6 +11,7 @@ import validator.CategoryRequestValidator;
 import validator.ProductRequestValidator;
 
 import javax.persistence.Converter;
+import java.util.List;
 
 public class CategoryService {
     CategoryDao categoryDao = new CategoryDao();
@@ -23,5 +24,9 @@ public class CategoryService {
         //Insert product into Database
         categoryDao.createCategoryEntity(category);
         return  categoryRequest;
+    }
+
+    public List<Category> displayAllCategory(){
+        return categoryDao.displayCategory();
     }
 }
